@@ -137,9 +137,12 @@ fun TabLayout() {
     ) {
         TabRow(
             selectedTabIndex = tabIndex,
-            indicator = { pos ->
+            indicator = { tabPositions ->
                 TabRowDefaults.Indicator(
-                    Modifier.tabIndicatorOffset(pos[tabIndex])
+                    color = Color.White, // Цвет индикатора
+                    modifier = Modifier.tabIndicatorOffset(
+                        tabPositions[tabIndex]
+                    )
                 )
             },
             containerColor = BlueLight,
