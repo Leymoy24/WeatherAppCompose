@@ -4,9 +4,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -93,7 +95,7 @@ fun MainCard() {
                 )
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween
+                    horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically
                 ) {
                     IconButton(onClick = {}) {
                         Icon(
@@ -103,7 +105,6 @@ fun MainCard() {
                         )
                     }
                     Text(
-                        modifier = Modifier.padding(top = 13.dp),
                         text = "23°C/12°C",
                         style = TextStyle(fontSize = 16.sp),
                         color = Color.White
@@ -165,6 +166,11 @@ fun TabLayout() {
             state = pagerState,
             modifier = Modifier.weight(1.0f)
         ) { index ->
+            LazyColumn(modifier = Modifier.fillMaxSize().padding(top = 3.dp)) {
+                items(15) {
+                    ListItem()
+                }
+            }
         }
     }
 }
